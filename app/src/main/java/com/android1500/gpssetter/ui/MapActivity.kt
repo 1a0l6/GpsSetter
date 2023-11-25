@@ -86,8 +86,6 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val PERMISSION_ID = 42
 
-
-
     private val elevationOverlayProvider by lazy {
         ElevationOverlayProvider(this)
     }
@@ -290,11 +288,13 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun initializeMap() {
+        //初始化地图
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
     }
 
     private fun isModuleEnable(){
+        //检查是否开启模块
         viewModel.isXposed.observe(this) { isXposed ->
             xposedDialog?.dismiss()
             xposedDialog = null
@@ -314,6 +314,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     override fun onMapReady(googleMap: GoogleMap) {
+        //地图准备完毕
         mMap = googleMap
         with(mMap){
             mapType = viewModel.mapType
@@ -340,6 +341,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
     }
 
     override fun onMapClick(latLng: LatLng) {
+        //点击地图
         mLatLng = latLng
         mMarker?.let { marker ->
             mLatLng.let {
@@ -354,6 +356,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun moveMapToNewLocation(moveNewLocation: Boolean) {
+        //地图上移动到新的点
         if (moveNewLocation) {
             mLatLng = LatLng(lat, lon)
             mLatLng.let { latLng ->
@@ -377,6 +380,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun aboutDialog(){
+        //关于
         alertDialog = MaterialAlertDialogBuilder(this)
         layoutInflater.inflate(R.layout.about,null).apply {
             val  tittle = findViewById<TextView>(R.id.design_about_title)
@@ -394,6 +398,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun addFavouriteDialog(){
+        //添加收藏
         alertDialog =  MaterialAlertDialogBuilder(this).apply {
             val view = layoutInflater.inflate(R.layout.dialog_layout,null)
             val editText = view.findViewById<EditText>(R.id.search_edittxt)
@@ -417,6 +422,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun openFavouriteListDialog() {
+        //打开收藏列表
         getAllUpdatedFavList()
         alertDialog = MaterialAlertDialogBuilder(this)
         alertDialog.setTitle(getString(R.string.favourites))
@@ -444,6 +450,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun getAllUpdatedFavList(){
+        //全部更新收藏列表
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.doGetUserDetails()
@@ -457,6 +464,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun updateDialog(){
+        //更新窗口
         alertDialog = MaterialAlertDialogBuilder(this)
         alertDialog.setTitle(R.string.update_available)
         alertDialog.setMessage(update?.changelog)
@@ -514,6 +522,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
     }
 
     private fun updateChecker(){
+        //更新检查
         lifecycleScope.launchWhenResumed {
             viewModel.update.collect{
                 if (it!= null){
@@ -558,6 +567,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun showStartNotification(address: String){
+        //显示开始通知
         notificationsChannel.showNotification(this){
             it.setSmallIcon(R.drawable.ic_stop)
             it.setContentTitle(getString(R.string.location_set))
@@ -571,6 +581,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
     private fun cancelNotification(){
+        //取消通知
         notificationsChannel.cancelAllNotifications(this)
     }
 
@@ -578,6 +589,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
     // Get current location
     @SuppressLint("MissingPermission")
     private fun getLastLocation() {
+        //获取最新位置
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         if (checkPermissions()) {
             if (isLocationEnabled()) {
@@ -604,6 +616,7 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
     @SuppressLint("MissingPermission")
     private fun requestNewLocationData() {
+        //请求新位置数据
         val mLocationRequest = LocationRequest()
         mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         mLocationRequest.interval = 0
@@ -663,13 +676,11 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
 
 
 
-
-
-
 }
 
 
 sealed class SearchProgress {
+    //搜索进度条
     object Progress : SearchProgress()
     data class Complete(val lat: Double , val lon : Double) : SearchProgress()
     data class Fail(val error: String?) : SearchProgress()

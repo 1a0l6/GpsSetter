@@ -1,6 +1,7 @@
 package com.android1500.gpssetter
 
 import androidx.appcompat.app.AppCompatDelegate
+import com.amap.api.location.AMapLocationClient
 import com.android1500.gpssetter.utils.PrefManager
 import com.highcapable.yukihookapi.hook.xposed.application.ModuleApplication
 import com.kieronquinn.monetcompat.core.MonetCompat
@@ -30,6 +31,9 @@ class App : ModuleApplication() {
         commonInit()
         MonetCompat.enablePaletteCompat()
         AppCompatDelegate.setDefaultNightMode(PrefManager.darkTheme)
+        //errorCode : 555570
+        AMapLocationClient.updatePrivacyAgree(this, true);
+        AMapLocationClient.updatePrivacyShow(this, true, true);
 
     }
 

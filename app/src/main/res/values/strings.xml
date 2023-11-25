@@ -2,82 +2,77 @@
 
     <!-- Home -->
 
-    <string name="app_name">GPS Setter</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="xposed_desc">Set location</string>
-    <string name="search">Search</string>
+    <string name="app_name">位置伪装</string>
+    <string name="title_activity_maps">地图页</string>
+    <string name="xposed_desc">模拟定位</string>
+    <string name="search">搜索</string>
     <string name="address">United States</string>
-    <string name="add_favourite">Add favourite</string>
-    <string name="add_fav_in_database">Add fav in database</string>
-    <string name="show_fav_list">Show fav list</string>
-    <string name="favourites">Favourites</string>
-    <string name="address_not_found">Address not found</string>
-    <string name="cant_save">Can\'t save</string>
-    <string name="location_set">Location set</string>
-    <string name="title">Location set notification</string>
-    <string name="des">Show notification when location will set</string>
-    <string name="location_unset">Location unset</string>
-    <string name="no_internet">No internet</string>
-    <string name="search_hint">"search eg. new york or 37.7749,-122.4194"</string>
-
+    <string name="add_favourite">添加收藏</string>
+    <string name="add_fav_in_database">添加收藏进数据库</string>
+    <string name="show_fav_list">展示收藏列表</string>
+    <string name="favourites">收藏</string>
+    <string name="address_not_found">地址未找到</string>
+    <string name="cant_save">不可以保存</string>
+    <string name="location_set">定位设置</string>
+    <string name="title">位置设置通知</string>
+    <string name="des">当位置将要设置时显示通知</string>
+    <string name="location_unset">定位未设置</string>
+    <string name="no_internet">没有网络</string>
+    <string name="search_hint">"eg:22.62140,113.94173"</string>
 
 
     <!-- Errors -->
-    <string name="error_xposed_module_missing">Xposed module is not enabled</string>
-    <string name="error_xposed_module_missing_desc">Enable this module in LSPosed Manager.\n\nDon’t have LSPosed?\n\t1. Install the Riru or Zygisk module from Magisk Manager\n\t2. Install the “Riru or Zygisk - LSPosed” module from Magisk Manager\n\t3. Open this app again</string>
-    <string name="error_missing_root">No root access</string>
-    <string name="error_missing_root_desc">Root access is necessary in order for this app to manage overlays and work properly.</string>
-
-
-
+    <string name="error_xposed_module_missing">Xposed模块未启用</string>
+    <string name="error_xposed_module_missing_desc">在LSPosed Manager中启用此模块.\n\n没有LSPosed?\n\t1. 从Magisk Manager安装Riru或Zygisk模块\n\t2. 从Magisk Manager安装“Riru或Zygisk-LSPosed”模块\n\t3. 再次打开此应用</string>
+    <string name="error_missing_root">没有Root权限</string>
+    <string name="error_missing_root_desc">Root权限是必要的，以便此应用程序管理覆盖并正常工作</string>
 
 
     <!-- About -->
 
-    <string name="about">About</string>
-    <string name="about_tittle">GPS Setter</string>
-    <string name="about_info">A module which will set your location where you want without enable mock location.</string>
+    <string name="about">关于</string>
+    <string name="about_tittle">位置伪装</string>
+    <string name="about_info">一个模块，它将把你的位置设置在你想要的地方，而不启用模拟位置。</string>
 
     <!-- Update -->
 
-    <string name="download_manager_description">Downloading update…</string>
-    <string name="update_button">Update</string>
-    <string name="update_available">Update available</string>
-    <string name="bs_update_download_failed">Failed</string>
+    <string name="download_manager_description">正在下载更新…</string>
+    <string name="update_button">更新</string>
+    <string name="update_available">可用更新</string>
+    <string name="bs_update_download_failed">更新失败</string>
 
 
     <!-- Dialog -->
 
-    <string name="add_fav_dialog_title">Add favourite</string>
-    <string name="dialog_button_add">Add</string>
-    <string name="dialog_button_ok">OK</string>
-    <string name="location_not_select">Location not select</string>
-    <string name="save">Save</string>
-    <string name="progress_dialog_searching">Searching...</string>
-
+    <string name="add_fav_dialog_title">添加收藏</string>
+    <string name="dialog_button_add">添加</string>
+    <string name="dialog_button_ok">确定</string>
+    <string name="location_not_select">未选择位置</string>
+    <string name="save">保存</string>
+    <string name="progress_dialog_searching">搜索中...</string>
 
 
     <!-- SettingActivity -->
 
     <string name="xposed">Xposed</string>
-    <string name="advance_hook">Hook system location</string>
-    <string name="settings">Settings</string>
-    <string name="settings_of_accuracy">Accuracy</string>
-    <string name="preference_category_general">General</string>
-    <string name="enter_valid_input">Enter valid number</string>
-    <string name="delete_favourite_item">Delete favourite</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="check_update">Check for updates</string>
-    <string name="check_update_summary">Automatically check for latest version on Github</string>
-    <string name="advanced_summary">Hook system for better Location set (Need Reboot)</string>
-    <string name="random_position">Random position</string>
-    <string name="random_position_summary">Location position will be random around set location</string>
-    <string name="drawer_open">open</string>
-    <string name="drawer_close">close</string>
-    <string name="stop">Stop</string>
-    <string name="start_spoofing">Set location</string>
-    <string name="current_address">current address</string>
-    <string name="app_update_failed">App update fail</string>
+    <string name="advance_hook">注入系统定位</string>
+    <string name="settings">设置</string>
+    <string name="settings_of_accuracy">精度</string>
+    <string name="preference_category_general">普遍</string>
+    <string name="enter_valid_input">输入有效号码</string>
+    <string name="delete_favourite_item">删除收藏</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="check_update">检查更新</string>
+    <string name="check_update_summary">在Github上自动检查最新版本</string>
+    <string name="advanced_summary">注入系统以获得更好的位置设置（需要重新启动）</string>
+    <string name="random_position">随机位置</string>
+    <string name="random_position_summary">定位位置将在设定在定位点周围随机</string>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+    <string name="stop">停止</string>
+    <string name="start_spoofing">设置位置</string>
+    <string name="current_address">当前地址</string>
+    <string name="app_update_failed">应用程序更新失败</string>
 
 
 </resources>
