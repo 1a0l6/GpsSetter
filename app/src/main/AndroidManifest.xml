@@ -60,10 +60,10 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="7b53564fe2a7c443d773bf0a3edba492" />
+            android:value="${GOOGLE_APP_KEY}" />
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="7b53564fe2a7c443d773bf0a3edba492" />
+            android:value="${AMAP_APP_KEY}" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
